@@ -11,11 +11,11 @@ public class Activity {
 	  private Activity[] predecessors;
 	  //just a concept 
 	  
-	  public Activity (String d,int dur,Activity[] suc,Activity[] pred) {
+	  public Activity (String d,int dur) {
 		  id=d;
 		  duration=dur;
-		  predecessors=pred;
-		  successors = suc;		  
+		  predecessors= new Activity[3];
+		  successors = new Activity[3];		  
 	  }
 	  
 	  
