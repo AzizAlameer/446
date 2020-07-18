@@ -3,6 +3,7 @@ public class Activity {
 	
 	  private String id;
 	  private int duration;
+	  private String resources;
 	  private int est;
 	  private int lst;
 	  private int ef;
@@ -23,6 +24,22 @@ public class Activity {
 	  
 	  
 	  
+	public String getResources() {
+		return resources;
+	}
+
+
+
+
+
+	public void setResources(String resources) {
+		this.resources = resources;
+	}
+
+
+
+
+
 	public String getId() {
 		return id;
 	}
