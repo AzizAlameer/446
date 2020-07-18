@@ -27,6 +27,7 @@ public class Main {
 			System.out.println("Enter the number of deliverables of phase "+i);
 			
 			int Dnum=s.nextInt();
+			phase p = new phase(PHname, Dnum);
 			
 			for(int j=1;j<=Dnum;j++) {
 				
@@ -38,27 +39,45 @@ public class Main {
 				
 				int Anum=s.nextInt();
 				
+				deliverable h = new deliverable(Dname, Anum);
+				
 				for(int k=1;k<=Anum;k++) {
 					
 					System.out.println("Enter the name of Activity "+k);
 					
 					String Aname=s.next();
+					
+					System.out.println("Enter the duration of activity "+k);
+					
+					int duration=s.nextInt();
 
 					System.out.println("Enter resources of activity "+k);
 
 					String Resource=s.next();
 					
-					System.out.println("Enter predecessors of activity " +k);
+					Activity test = new Activity(Aname, duration);
+					test.setResources(Resource);
+					
+					System.out.println("Enter predecessor of activity(-1 if nothing) " +k);
 					
 					String predname=s.next();
 					
-					System.out.println("Enter successors of activity "+k);
+					
+					
+					
+					System.out.println("Enter successors of activity (-1 if nothing) "+k);
 					
 					String succname=s.next();
+				
 					
 					
+					
+					h.addActivity(test);
 					
 				}
+				p.adddeliverable(h);
+				
+				
 				
 			}
 

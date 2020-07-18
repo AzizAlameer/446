@@ -10,6 +10,7 @@ public class Activity {
 	  private int lf;
 	  private Activity[] successors;
 	  private Activity[] predecessors;
+	  
 	  //just a concept 
 	  
 	  public Activity (String d,int dur) {
@@ -17,13 +18,18 @@ public class Activity {
 		  duration=dur;
 		  predecessors= new Activity[3];
 		  successors = new Activity[3];
-		  
+		  resources=null;
+		  est=0;
+		  lst=0;
+		  ef=0;
+		  lf=0;
 	  }
 	  
 	  
-	  
-	  
-	  
+
+
+
+
 	public String getResources() {
 		return resources;
 	}

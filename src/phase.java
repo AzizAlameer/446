@@ -3,13 +3,25 @@ public class phase {
 	
 	private String Pname;
 	private deliverable[] de;
+	private int nb;
 	
 	public phase(String pname, int size) {
-		super();
+		
 		Pname = pname;
 		de = new deliverable[size] ;
+		nb=0;
 	}
 	
+public void adddeliverable(deliverable d) {
+		
+		if(nb<de.length)
+		{
+			de[nb++]=d;
+		}
+		else
+			System.out.println("wrong");
+		
+	}
 
 	public String getPname() {
 		return Pname;
