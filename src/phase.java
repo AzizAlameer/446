@@ -4,10 +4,10 @@ public class phase {
 	private String Pname;
 	private deliverable[] de;
 	
-	public phase(String pname, deliverable[] de) {
+	public phase(String pname, int size) {
 		super();
 		Pname = pname;
-		this.de = de;
+		de = new deliverable[size] ;
 	}
 	
 

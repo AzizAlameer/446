@@ -4,10 +4,10 @@ public class deliverable {
 	private Activity[] activities;
 	
 	
-	public deliverable(String dname, Activity[] activities) {
-		super();
+	public deliverable(String dname,int size) {
+		
 		this.dname = dname;
-		this.activities = activities;
+		activities = new Activity[size];;
 	}
 
 

@@ -15,7 +15,8 @@ public class Activity {
 		  id=d;
 		  duration=dur;
 		  predecessors= new Activity[3];
-		  successors = new Activity[3];		  
+		  successors = new Activity[3];
+		  
 	  }
 	  
 	  
