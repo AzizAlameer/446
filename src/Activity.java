@@ -1,20 +1,29 @@
 
 public class Activity {
 	
-	  private String id;
+	  private String name;
 	  private int duration;
 	  private String resources;
 	  private int est;
 	  private int lst;
 	  private int ef;
 	  private int lf;
-	  private Activity[] successors;
-	  private Activity[] predecessors;
-	  
-	  //just a concept 
-	  
-	  public Activity (String d,int dur) {
-		  id=d;
+	private int id;
+	private Activity[] successors;
+	 private Activity[] predecessors;
+	 private String predName;
+	 private String succName;
+	 
+	 
+		  
+		  //just a concept 
+		  
+
+	  public Activity (String names,int dur,int ids,String pred,String succ) {
+		  predName=pred;
+		  succName=succ;
+		  name=names;
+		  id=ids;
 		  duration=dur;
 		  predecessors= new Activity[3];
 		  successors = new Activity[3];
@@ -27,6 +36,47 @@ public class Activity {
 	  
 	  
 
+	  
+	  public String getPredName() {
+		return predName;
+	}
+
+
+
+
+	public void setPredName(String predName) {
+		this.predName = predName;
+	}
+
+
+
+
+	public String getSuccName() {
+		return succName;
+	}
+
+
+
+
+	public void setSuccName(String succName) {
+		this.succName = succName;
+	}
+
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 
 
@@ -46,10 +96,10 @@ public class Activity {
 
 
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public int getDuration() {

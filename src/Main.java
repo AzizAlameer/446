@@ -16,7 +16,7 @@ public class Main {
 		System.out.println("Enter number of phases:");
 		
 		int num=s.nextInt();
-		
+		Project prject1 = new Project(num);
 		for(int i=1;i<=num;i++) {
 			
 			
@@ -55,8 +55,8 @@ public class Main {
 
 					String Resource=s.next();
 					
-					Activity test = new Activity(Aname, duration);
-					test.setResources(Resource);
+					
+					
 					
 					System.out.println("Enter predecessor of activity(-1 if nothing) " +k);
 					
@@ -69,10 +69,14 @@ public class Main {
 					
 					String succname=s.next();
 				
+					Activity test = new Activity(Aname, duration,k,predname,succname);
+					test.setResources(Resource);
 					
 					
 					
 					h.addActivity(test);
+					
+					
 					
 				}
 				p.adddeliverable(h);
@@ -81,10 +85,21 @@ public class Main {
 				
 			}
 
-			
+			prject1.addphase(p);
 			
 			
 		}
+		
+		// BRINGS ALL ACTIVITY
+		
+		// SET PRED SUCC
+		
+		// FORWARD AND BACKWARD 
+		
+		// print
+		
+		
+		
 		
 		
 	}
