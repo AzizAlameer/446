@@ -3,7 +3,7 @@ public class Project {
 	
 	private phase[] phases;
 	private int nb;
-	
+	private int nba;
 	
 	public Project( int size) {
 		
@@ -13,8 +13,6 @@ public class Project {
 	}
 	
 	
-	private int nba;
-	private int nba2;
 	
 	public int getNba() {
 		return nba;
@@ -23,9 +21,13 @@ public class Project {
 	public void setNba(int nba) {
 		this.nba = nba;
 	}
-	private Activity[] allactivity = new Activity[nba];
 	
-	public void combineActivity() {
+	
+	public Activity[] combineActivity() {
+		
+	int counter =0;
+			Activity[] allactivity = new Activity[nba];
+			
 		for (int i = 0; i <= phases.length; i++) {
 			
 			deliverable[] del = phases[i].getDe();
@@ -34,13 +36,13 @@ public class Project {
 				Activity[] activ = del[j].getActivities();
 				
 				for (int m =0; m<=activ.length; m++) {
-					addacc(activ[m]);
+					allactivity[counter++]=activ[m];
 				}
 				
 			}
 		
 		}
-		return;
+		return allactivity;
 	}
 	
 public phase[] getPhases() {
@@ -62,13 +64,6 @@ public void addphase(phase p) {
 		
 	}
 	
-public void addacc(Activity k) {
-	
-	
-	allactivity[nba2++]=k;
-		
-	
-}
-	
+
 
 }
