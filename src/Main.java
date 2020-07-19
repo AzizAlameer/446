@@ -17,6 +17,7 @@ public class Main {
 		
 		int num=s.nextInt();
 		Project prject1 = new Project(num);
+		int numacc = 0;
 		for(int i=1;i<=num;i++) {
 			
 			
@@ -55,7 +56,7 @@ public class Main {
 
 					String Resource=s.next();
 					
-					
+					numacc++;
 					
 					
 					System.out.println("Enter predecessor of activity(-1 if nothing) " +k);
@@ -89,7 +90,7 @@ public class Main {
 			
 			
 		}
-		
+		prject1.setNba(numacc);
 		// BRINGS ALL ACTIVITY
 		
 		// SET PRED SUCC
