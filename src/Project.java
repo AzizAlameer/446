@@ -7,7 +7,7 @@ public class Project {
 	
 	public Project( int size) {
 		
-		
+		nba=0;
 		phases = new phase [size];
 		
 	}
@@ -27,15 +27,15 @@ public class Project {
 		
 	int counter =0;
 			Activity[] allactivity = new Activity[nba];
+			//System.out.println(nba);
+		for (int i = 0; i < phases.length; i++) {
+		//	System.out.println(phases.length);
+			deliverable[] del = phases[i].getDe().clone();
 			
-		for (int i = 0; i <= phases.length; i++) {
-			
-			deliverable[] del = phases[i].getDe();
-			
-			for(int j =0; j<= del.length; j++) {
-				Activity[] activ = del[j].getActivities();
+			for(int j =0; j< del.length; j++) {
+				Activity[] activ = del[j].getActivities().clone();
 				
-				for (int m =0; m<=activ.length; m++) {
+				for (int m =0; m<activ.length; m++) {
 					allactivity[counter++]=activ[m];
 				}
 				

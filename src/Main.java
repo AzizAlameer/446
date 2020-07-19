@@ -89,8 +89,20 @@ public class Main {
 			prject1.addphase(p);
 			
 			
+
 		}
 		prject1.setNba(numacc);
+		//System.out.println(prject1.getPhases().length);
+		//phase testing [] = prject1.getPhases().clone();
+		//System.out.println(testing[0].getDe().length);
+		
+		
+		Activity Allact[]=prject1.combineActivity().clone();
+		
+		for(int i =0;i<numacc;i++) {
+			System.out.println(Allact[i].getId());
+		}
+		
 		// BRINGS ALL ACTIVITY
 		
 		// SET PRED SUCC
