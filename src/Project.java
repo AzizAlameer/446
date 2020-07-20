@@ -118,11 +118,12 @@ public class Project {
 			  reverse[counter++]=all[i];
 		
 		}
+		
 		  for(int i=0;i<reverse.length;i++) {
 			  
 			 if(reverse[i].getSuccName().equalsIgnoreCase("-1")) {
 				 
-				 reverse[i].setLf(reverse[i].getLf());
+				 reverse[i].setLf(reverse[i].getEf());
 				 
 				 reverse[i].setLst(reverse[i].getLf()-reverse[i].getDuration());
 				 continue;
@@ -148,6 +149,15 @@ public class Project {
 			  
 			  
 		  }
+		  
+			for(int i=0;i<reverse.length;i++) {
+				System.out.println(reverse[i].getName());
+				System.out.println(reverse[i].getEf());
+				System.out.println(reverse[i].getLf());
+				System.out.println(reverse[i].getLst());
+				System.out.println(reverse[i].getEst());
+
+			}
 		  
 		
 		

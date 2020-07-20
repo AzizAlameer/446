@@ -147,7 +147,7 @@ public class Main {
 		
 		prject1.Forward(Allact);
 		
-	//	prject1.backward(Allact);
+		prject1.backward(Allact);
 		
 		
 		for(int i=0;i<Allact.length;i++) {
