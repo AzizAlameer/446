@@ -22,6 +22,34 @@ public class Project {
 		this.nba = nba;
 	}
 	
+	public Activity Search(String name) {
+		
+		for (int i = 0; i < phases.length; i++) {
+			
+				deliverable[] del = phases[i].getDe().clone();
+				
+				for(int j =0; j< del.length; j++) {
+					
+					Activity[] activ = del[j].getActivities().clone();
+					
+					for (int m =0; m<activ.length; m++) {
+					if(name.equalsIgnoreCase(activ[m].getName())) {
+						
+						return activ[m];
+					}
+						
+						
+					}
+					
+				}
+			
+			}
+		
+		
+		return null;
+		
+	}
+	
 	
 	public Activity[] combineActivity() {
 		

@@ -48,6 +48,11 @@ public class Main {
 					
 					String Aname=s.next();
 					
+					System.out.println("Enter the ID number of Activity "+k);
+					
+					int AnID=s.nextInt();
+					
+					
 					System.out.println("Enter the duration of activity "+k);
 					
 					int duration=s.nextInt();
@@ -59,7 +64,7 @@ public class Main {
 					numacc++;
 					
 					
-					System.out.println("Enter predecessor of activity(-1 if nothing) " +k);
+					System.out.println("Enter predecessor of activity by ID(-1 if nothing) " +k);
 					
 					String predname=s.next();
 					
@@ -70,7 +75,7 @@ public class Main {
 					
 					String succname=s.next();
 				
-					Activity test = new Activity(Aname, duration,k,predname,succname);
+					Activity test = new Activity(Aname, duration,AnID,predname,succname);
 					test.setResources(Resource);
 					
 					
@@ -99,13 +104,46 @@ public class Main {
 		
 		Activity Allact[]=prject1.combineActivity().clone();
 		
-		for(int i =0;i<numacc;i++) {
-			System.out.println(Allact[i].getId());
-		}
+	
 		
 		// BRINGS ALL ACTIVITY
 		
 		// SET PRED SUCC
+		
+	
+		for(int i = 0;i<Allact.length;i++) {
+			
+			String yes=Allact[i].getPredName();
+			
+			String yess[]=yes.split(" +");
+			
+			Activity pre[]= new Activity[yess.length];
+			
+			for(int v = 0 ; v <yess.length;v++) {
+				
+				pre[v]=prject1.Search(yess[v]);
+				
+			}
+			Allact[i].setPredecessors(pre);
+			
+			String no=Allact[i].getSuccName();
+			
+			String nos[]=no.split(" +");
+			
+			Activity suc[]= new Activity[nos.length];
+			
+			for(int g = 0 ; g <nos.length;g++) {
+				
+				suc[g]=prject1.Search(nos[g]);
+			}
+			Allact[i].setPredecessors(pre);
+			
+			
+		}
+		
+		
+		
+		
 		
 		// FORWARD AND BACKWARD 
 		
