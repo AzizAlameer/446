@@ -8,7 +8,7 @@ public class Activity {
 	  private int lst;
 	  private int ef;
 	  private int lf;
-	private int id;
+	
 	private Activity[] successors;
 	 private Activity[] predecessors;
 	 private String predName;
@@ -19,11 +19,11 @@ public class Activity {
 		  //just a concept 
 		  
 
-	  public Activity (String names,int dur,int ids,String pred,String succ) {
+	  public Activity (String names,int dur,String pred,String succ) {
 		  predName=pred;
 		  succName=succ;
 		  name=names;
-		  id=ids;
+		
 		  duration=dur;
 		  predecessors= new Activity[3];
 		  successors = new Activity[3];
@@ -96,12 +96,7 @@ public class Activity {
 
 
 
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public int getDuration() {
 		return duration;
 	}

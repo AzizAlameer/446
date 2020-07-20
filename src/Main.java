@@ -46,13 +46,13 @@ public class Main {
 					
 					System.out.println("Enter the name of Activity "+k);
 					
-					String Aname=s.next();
 					
-					System.out.println("Enter the ID number of Activity "+k);
+			     
+			         String  Aname= s.next();
+			         
+			      
 					
-					int AnID=s.nextInt();
-					
-					
+				
 					System.out.println("Enter the duration of activity "+k);
 					
 					int duration=s.nextInt();
@@ -75,7 +75,7 @@ public class Main {
 					
 					String succname=s.next();
 				
-					Activity test = new Activity(Aname, duration,AnID,predname,succname);
+					Activity test = new Activity(Aname, duration,predname,succname);
 					test.setResources(Resource);
 					
 					
@@ -104,6 +104,7 @@ public class Main {
 		
 		Activity Allact[]=prject1.combineActivity().clone();
 		
+
 	
 		
 		// BRINGS ALL ACTIVITY
@@ -139,6 +140,23 @@ public class Main {
 			Allact[i].setSuccessors(suc);
 			
 			
+		}
+		
+		
+	
+		
+		prject1.Forward(Allact);
+		
+	//	prject1.backward(Allact);
+		
+		
+		for(int i=0;i<Allact.length;i++) {
+			System.out.println(Allact[i].getName());
+			System.out.println(Allact[i].getEf());
+			System.out.println(Allact[i].getLf());
+			System.out.println(Allact[i].getLst());
+			System.out.println(Allact[i].getEst());
+
 		}
 		
 		

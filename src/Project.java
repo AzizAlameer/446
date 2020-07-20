@@ -125,6 +125,7 @@ public class Project {
 				 reverse[i].setLf(reverse[i].getLf());
 				 
 				 reverse[i].setLst(reverse[i].getLf()-reverse[i].getDuration());
+				 continue;
 				 
 			 }
 			 Activity succe[]=reverse[i].getSuccessors().clone();
