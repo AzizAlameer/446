@@ -73,15 +73,99 @@ public class Project {
 		return allactivity;
 	}
 	
-public phase[] getPhases() {
+	
+	public void Forward(Activity[] all) {
+		
+		for(int i=0;i<all.length;i++) {
+			if(all[i].getPredName().equalsIgnoreCase("-1")) {
+				all[i].setEst(0);
+				all[i].setEf(all[i].getDuration());
+				continue;
+			}
+			
+			
+			Activity preds[]=all[i].getPredecessors().clone();
+			
+			int max = preds[0].getEf();
+			
+			for(int j =0;j<all[i].getPredecessors().length;j++) {
+			
+				
+				
+				if(preds[j].getEf()>max) {
+					max=preds[j].getEf();
+					
+				}
+				
+				
+			}
+			all[i].setEst(max);
+			all[i].setEf(all[i].getEst()+all[i].getDuration());
+			
+		}
+		
+		
+		
+	}
+	
+	public void backward(Activity[] all) {
+		
+		
+		Activity reverse[]=new Activity[all.length];
+		int counter=0;
+		  for(int i=all.length-1;i>=0;i--) {
+			  
+			  reverse[counter++]=all[i];
+		
+		}
+		  for(int i=0;i<reverse.length;i++) {
+			  
+			 if(reverse[i].getSuccName().equalsIgnoreCase("-1")) {
+				 
+				 reverse[i].setLf(reverse[i].getLf());
+				 
+				 reverse[i].setLst(reverse[i].getLf()-reverse[i].getDuration());
+				 
+			 }
+			 Activity succe[]=reverse[i].getSuccessors().clone();
+			 
+			 int min=succe[0].getLst();
+			 
+			 for(int j=0;j<reverse[i].getSuccessors().length;j++) {
+				 
+				 
+				 if(succe[j].getLst()<min) {
+					 
+					 min=succe[j].getLst();
+					 
+				 }
+			 }
+			  
+			 reverse[i].setLf(min);
+			 
+			 reverse[i].setLst(reverse[i].getLf()-reverse[i].getDuration());
+			  
+			  
+		  }
+		  
+		
+		
+	}
+	
+	
+	
+	
+	public phase[] getPhases() {
 		return phases;
 	}
+
+
 
 	public void setPhases(phase[] phases) {
 		this.phases = phases;
 	}
 
-public void addphase(phase p) {
+	public void addphase(phase p) {
 		
 		if(nb<phases.length)
 		{

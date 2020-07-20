@@ -136,10 +136,12 @@ public class Main {
 				
 				suc[g]=prject1.Search(nos[g]);
 			}
-			Allact[i].setPredecessors(pre);
+			Allact[i].setSuccessors(suc);
 			
 			
 		}
+		
+		
 		
 		
 		
