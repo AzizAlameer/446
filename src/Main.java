@@ -62,19 +62,52 @@ public class Main {
 					String Resource=s.next();
 					
 					numacc++;
+					String predname="";
+					for(int l = 0;l<3;l++) {
+					System.out.println("Enter predecessor of activity by name(-1 if nothing 0 if done) " +k);
+					
+					String poname=s.next();
+					
+					if(poname.equalsIgnoreCase("0")){
+						break;
+					}
+					
+					if(poname.equalsIgnoreCase("-1")) {
+						predname=poname;
+						break;
+					}else {
+						
+						predname+=poname+" ";
+					}
 					
 					
-					System.out.println("Enter predecessor of activity by ID(-1 if nothing) " +k);
 					
-					String predname=s.next();
+					}
+					
+					String succname="";
+					
+					for(int l = 0;l<3;l++) {
+					
+					System.out.println("Enter successors of activity (-1 if nothing 0 if done) "+k);
+					
+					String su=s.next();
+					if(su.equalsIgnoreCase("0")){
+						break;
+					}
+					
+					if(su.equalsIgnoreCase("-1")) {
+						succname=su;
+						break;
+					}else {
+						
+						succname+=su+" ";
+					}
 					
 					
+					}
 					
-					
-					System.out.println("Enter successors of activity (-1 if nothing) "+k);
-					
-					String succname=s.next();
-				
+					System.out.println(predname);
+					System.out.println(succname);
 					Activity test = new Activity(Aname, duration,predname,succname);
 					test.setResources(Resource);
 					
