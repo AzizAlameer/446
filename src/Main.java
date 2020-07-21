@@ -11,10 +11,11 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Scanner s = new Scanner (System.in);
+		Scanner ss = new Scanner (System.in).useDelimiter("\n");
 		
 		System.out.println("Enter project name:");
 		
-		String PRname=s.next();
+		String PRname=ss.nextLine();
 		
 		System.out.println("Enter project start date:");
 		
@@ -31,7 +32,7 @@ public class Main {
 			
 			System.out.println("Enter the name of phase "+i);
 			
-			String PHname=s.next();
+			String PHname=ss.nextLine();
 			
 			System.out.println("Enter the number of deliverables of phase "+i);
 			
@@ -42,7 +43,7 @@ public class Main {
 				
 				System.out.println("Enter the name of deliverable "+j);
 				
-				String Dname=s.next();
+				String Dname=ss.nextLine();
 				
 				System.out.println("Enter the number of activities for deliverable "+j);
 				
@@ -56,7 +57,7 @@ public class Main {
 					
 					
 			     
-			         String  Aname= s.next();
+			         String  Aname= ss.nextLine();
 			         
 			      
 					
@@ -67,7 +68,7 @@ public class Main {
 
 					System.out.println("Enter resources of activity "+k);
 
-					String Resource=s.next();
+					String Resource=ss.nextLine();
 					
 					numacc++;
 					String predname="";
@@ -189,8 +190,8 @@ public class Main {
 		prject1.Forward(Allact);
 		
 		prject1.backward(Allact);
-		String faisal = "Project name: "+PRname +"\n";
-		faisal+="Number of phases: "+num +"\n";
+		String faisal = "Project name: "+PRname +"\n"+"\n";
+		faisal+="Number of phases: "+num +"\n"+"\n";
 		System.out.println("Project name: "+PRname);
 		System.out.println("Project start date: "+PRdate);
 		System.out.println("Number of phases: "+num);  
@@ -199,21 +200,22 @@ public class Main {
 		deliverable[] d;
 		Activity[] a;
 		for(int l =0; l<=p.length-1; l++) {
-			faisal+="Phase" +(l+1) +" name: "+ p[l].getPname() +"\n";
+			faisal+="	Phase" +(l+1) +" name: "+ p[l].getPname() +"\n"+"\n";
 			System.out.println("Phase" +(l+1) +" name: "+ p[l].getPname());
 			d=p[l].getDe();
 			for (int u =0; u<= d.length-1; u++) {
-				faisal+="Deliverable"+(u+1)+" name: "+d[u].getDname()+"\n";
+				faisal+="		Deliverable"+(u+1)+" name: "+d[u].getDname()+"\n"+"\n";
 				System.out.println("Deliverable"+(u+1)+" name: "+d[u].getDname() );
 				a= d[u].getActivities();
 				for (int i=0; i<=a.length-1; i++) {
-					faisal+="activity name: "+a[i].getName() +"\n";
-					faisal+="activity duration: "+a[i].getDuration() +"\n";
-					faisal+="activity resources: "+a[i].getResources() +"\n";
+					faisal+="			activity name: "+a[i].getName() +"\n"+"\n";
+					faisal+="			activity duration: "+a[i].getDuration() +"\n"+"\n";
+					faisal+="			activity resources: "+a[i].getResources() +"\n"+"\n";
 					faisal+=" EF: "+a[i].getEf();
 					faisal+=" LF: "+a[i].getLf();
 					faisal+=" LS: "+a[i].getLst();
 					faisal+=" ES: "+a[i].getEst() +"\n";
+					
 					System.out.println("activity name: "+a[i].getName());
 					System.out.println("activity duration: "+a[i].getDuration());
 					System.out.println("activity resources: "+a[i].getResources());
@@ -222,7 +224,9 @@ public class Main {
 					System.out.print(" LS: "+a[i].getLst());
 					System.out.println(" ES: "+a[i].getEst()); 
 				}
+				
 			}
+			faisal+="------------------------------------------------" +"\n";
 		}
 		
 		

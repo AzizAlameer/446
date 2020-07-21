@@ -1,0 +1,32 @@
+Project name: 1
+
+Number of phases: 2
+
+	Phase1 name: 1
+
+		Deliverable1 name: 1
+
+			activity name: a
+
+			activity duration: 2
+
+			activity resources: a
+
+ EF: 2 LF: 2 LS: 0 ES: 0
+------------------------------------------------
+	Phase2 name: a
+
+		Deliverable1 name: 1
+
+			activity name: b
+
+			activity duration: 2
+
+			activity resources: a
+
+ EF: 4 LF: 4 LS: 2 ES: 2
+------------------------------------------------
+------------------------------------------------
+ 
+Critcal Path:a b  
+Critcal Path Duration: 4
