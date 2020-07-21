@@ -150,14 +150,14 @@ public class Project {
 			  
 		  }
 		  
-			for(int i=0;i<reverse.length;i++) {
+			/*for(int i=0;i<reverse.length;i++) {
 				System.out.println(reverse[i].getName());
 				System.out.println(reverse[i].getEf());
 				System.out.println(reverse[i].getLf());
 				System.out.println(reverse[i].getLst());
 				System.out.println(reverse[i].getEst());
 
-			}
+			}*/
 		  
 		
 		

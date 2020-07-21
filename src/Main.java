@@ -1,5 +1,13 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
+
+
 public class Main {
+	 
+	
 	public static void main(String[] args) {
 		
 		Scanner s = new Scanner (System.in);
@@ -106,8 +114,8 @@ public class Main {
 					
 					}
 					
-					System.out.println(predname);
-					System.out.println(succname);
+					//System.out.println(predname);
+					//System.out.println(succname);
 					Activity test = new Activity(Aname, duration,predname,succname);
 					test.setResources(Resource);
 					
@@ -181,33 +189,94 @@ public class Main {
 		prject1.Forward(Allact);
 		
 		prject1.backward(Allact);
+		String faisal = "Project name: "+PRname +"\n";
+		faisal+="Number of phases: "+num +"\n";
+		System.out.println("Project name: "+PRname);
+		System.out.println("Project start date: "+PRdate);
+		System.out.println("Number of phases: "+num);  
 		
-		
-		for(int i=0;i<Allact.length;i++) {
-			System.out.println(Allact[i].getName());
-			System.out.println(Allact[i].getEf());
-			System.out.println(Allact[i].getLf());
-			System.out.println(Allact[i].getLst());
-			System.out.println(Allact[i].getEst());
-
+		phase[] p= prject1.getPhases();
+		deliverable[] d;
+		Activity[] a;
+		for(int l =0; l<=p.length-1; l++) {
+			faisal+="Phase" +(l+1) +" name: "+ p[l].getPname() +"\n";
+			System.out.println("Phase" +(l+1) +" name: "+ p[l].getPname());
+			d=p[l].getDe();
+			for (int u =0; u<= d.length-1; u++) {
+				faisal+="Deliverable"+(u+1)+" name: "+d[u].getDname()+"\n";
+				System.out.println("Deliverable"+(u+1)+" name: "+d[u].getDname() );
+				a= d[u].getActivities();
+				for (int i=0; i<=a.length-1; i++) {
+					faisal+="activity name: "+a[i].getName() +"\n";
+					faisal+="activity duration: "+a[i].getDuration() +"\n";
+					faisal+="activity resources: "+a[i].getResources() +"\n";
+					faisal+=" EF: "+a[i].getEf();
+					faisal+=" LF: "+a[i].getLf();
+					faisal+=" LS: "+a[i].getLst();
+					faisal+=" ES: "+a[i].getEst() +"\n";
+					System.out.println("activity name: "+a[i].getName());
+					System.out.println("activity duration: "+a[i].getDuration());
+					System.out.println("activity resources: "+a[i].getResources());
+					System.out.print(" EF: "+a[i].getEf());
+					System.out.print(" LF: "+a[i].getLf());
+					System.out.print(" LS: "+a[i].getLst());
+					System.out.println(" ES: "+a[i].getEst()); 
+				}
+			}
 		}
 		
 		
-		
-		
+		faisal+="------------------------------------------------" +"\n";
+		System.out.println("------------------------------------------------");
+		Activity[] c= prject1.combineActivity().clone();
+		Activity[] CA = new Activity[c.length];
+		int CAd=0;
+		int coun=0;
+		for(int f=0; f<=c.length-1; f++) {
+			if (c[f].getLf()==c[f].getEf()) {
+				CA[coun++]=c[f];
+				CAd+=c[f].getDuration();
+			}
+		}
+		faisal+=" " +"\n";
+		faisal+="Critcal Path:" ;
+		System.out.println(" ");
+		System.out.print("Critcal Path:");
+		for (int g=0; g<=CA.length-1; g++) {
+			if (CA[g]==null) {
+				continue;
+			}
+			faisal+=CA[g].getName()+" ";
+			System.out.print(CA[g].getName()+" ");
+		}
+		faisal+=" "+"\n";
+		faisal+="Critcal Path Duration: ";
+		faisal+=CAd+"\n";
+		System.out.println(" ");
+		System.out.print("Critcal Path Duration: ");
+		System.out.println(CAd); 
 		
 		
 		
 		// FORWARD AND BACKWARD 
 		
 		// print
+		File outFile = new File("Output.txt");
+		BufferedWriter writer;
+		try {
+			writer = new BufferedWriter(new FileWriter(outFile));
+			writer.write(faisal);
+			writer.close();
+		} catch (IOException ex) {
+			System.out.println("Error writing file");
+		}
 		
 		
 		
 		
 		
 	}
-	
+
 	
 
 }
